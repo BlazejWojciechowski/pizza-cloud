@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Witamy w naszej pizzeri</title>
+
+    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css">
+</head>
+<body>
+    <div id="container">
+
+        <div class="rectangle">
+            <div id="logo">Pizza Heart</div>
+            <div id="motto">Best Pizza</div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="square">
+            <div class="tile1">
+                <a th:href="@{/onas}">Coś o nas</a>
+            </div>
+
+            <div class="tile1">
+                <a th:href="@{/historia}">Nasza historia</a>
+            </div>
+
+            <div class="tile1">
+                <a th:href="@{/naszadres}">tutaj nasz znajdziesz</a>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="square">
+            <div class="tile2">
+                Stwórz swoją włąsną PIZZĘ!!
+                <img th:src="@{/images/pizza.jpeg}">
+            </div>
+            
+            <div style="clear: both"></div>
+        </div>
+        
+        <div class="rectangle">2023 &copy; Najlepsza pizzzeria pod słońcem.</div>
+
+    </div>
+
+</body>
+</html>
