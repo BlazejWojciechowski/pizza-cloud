@@ -20,19 +20,23 @@
         <div class="square">
 
             <div class="tile1">
-                <a th:href="@{/menu.html}" target="_blank"><h2>Menu</h2></a>
+                <form th:action="@{/menu}" method="get"></form>
+                <a th:href="@{/menu}" target="_blank"><h2>Menu</h2></a>
             </div>
 
             <div class="tile1">
-                <a th:href="@{/us.html}" target="_blank"><h2>O nas</h2></a>
+                <form th:action="@{/us}" method="get"></form>
+                <a th:href="@{/us}" target="_blank"><h2>O nas</h2></a>
             </div>
 
             <div class="tile1">
-                <a th:href="@{/history.html}" target="_blank"><h2>Nasza historia</h2></a>
+                <form th:action="@{/history}" method="get"></form>
+                <a th:href="@{/history}" target="_blank"><h2>Nasza historia</h2></a>
             </div>
 
             <div class="tile1">
-                <a th:href="@{/address.html}" target="_blank"><h2>Tutaj jesteśmy</h2></a>
+                <form th:action="@{/address}" method="get"></form>
+                <a th:href="@{/address}" target="_blank"><h2>Tutaj jesteśmy</h2></a>
             </div>
 
             <div style="clear: both"></div>
@@ -40,7 +44,8 @@
 
         <div class="square">
             <div class="tile2">
-                <a th:href="@{/orderForm.html}" target="_blank"><h1>Stwórz własną PIZZE!!!</h1></a>
+                <form th:action="@{/orderForm}" method="get"></form>
+                <a th:href="@{/order}" target="_blank"><h1>Stwórz własną PIZZE!!!</h1></a>
                 <img th:src="@{/images/pizza.jpeg}" >
             </div>
             
