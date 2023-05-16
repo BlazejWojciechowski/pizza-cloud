@@ -11,6 +11,6 @@ public class Ingredients {
     private final Type type;
 
     public enum Type {
-        DOUGH, CHEESE, MEET, VEGGIES, SALAD, SAUCE
+        DOUGH, PROTEIN, CHEESE, VEGGIES, SALAD, SAUCE
     }
 }
