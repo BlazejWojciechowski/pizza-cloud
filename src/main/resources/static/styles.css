@@ -1,42 +1,57 @@
 body {
     background-color: gray;
     color: white;
-    font-family: Verdana;
+    font-family: Gabriola;
     font-size: 20px;
 }
 #container {
-    width: 1000px;
+    width: 1356px;
     margin-left: auto;
     margin-right: auto;
 }
 .rectangle {
-    width: 960px;
+    width: 1356px;
     margin: 20px;
     text-align: center;
 }
 .square {
-    width: 960px;
+    width: 1356px;
     margin: 20px;
 }
 #logo {
     float: left;
     font-size: 70px;
-    width: 500px;
-    text-align: left;
+    width: 50%;
+    text-align: center;
 }
 #motto {
     float: left;
     font-size: 70px;
-    text-align: left;
+    width: 50%;
+    text-align: center;
 }
 .tile1 {
     float: left;
-    width: 300px;
+    width: 329px;
     margin: 5px;
     height: 150px;
     background-color: aqua;
     text-align: center;
 }
 .tile2 {
-
+    background-color: black;
+    text-align: center;
+}
+h1 {
+    font-size: 70px;
+}
+h2 {
+    font-size: 40px;
+    text-align: center;
+}
+h3 {
+    font-size: 70px;
+}
+.tile1:hover {
+    background-color: black;
 }

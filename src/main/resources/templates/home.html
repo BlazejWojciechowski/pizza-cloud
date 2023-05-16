@@ -18,16 +18,21 @@
         </div>
 
         <div class="square">
+
             <div class="tile1">
-                <a th:href="@{/onas}">Coś o nas</a>
+                <a th:href="@{/menu.html}" target="_blank"><h2>Menu</h2></a>
             </div>
 
             <div class="tile1">
-                <a th:href="@{/historia}">Nasza historia</a>
+                <a th:href="@{/us.html}" target="_blank"><h2>O nas</h2></a>
             </div>
 
             <div class="tile1">
-                <a th:href="@{/naszadres}">tutaj nasz znajdziesz</a>
+                <a th:href="@{/history.html}" target="_blank"><h2>Nasza historia</h2></a>
+            </div>
+
+            <div class="tile1">
+                <a th:href="@{/address.html}" target="_blank"><h2>Tutaj jesteśmy</h2></a>
             </div>
 
             <div style="clear: both"></div>
@@ -35,14 +40,16 @@
 
         <div class="square">
             <div class="tile2">
-                Stwórz swoją włąsną PIZZĘ!!
-                <img th:src="@{/images/pizza.jpeg}">
+                <a th:href="@{/orderForm.html}" target="_blank"><h1>Stwórz własną PIZZE!!!</h1></a>
+                <img th:src="@{/images/pizza.jpeg}" >
             </div>
             
             <div style="clear: both"></div>
         </div>
         
-        <div class="rectangle">2023 &copy; Najlepsza pizzzeria pod słońcem.</div>
+        <div class="rectangle">
+            <h3>2023 &copy; Najlepsza pizzzeria pod słońcem.</h3>
+        </div>
 
     </div>
 
