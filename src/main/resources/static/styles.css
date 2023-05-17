@@ -3,6 +3,7 @@ body {
     color: white;
     font-family: Gabriola;
     font-size: 20px;
+    text-align: center;
 }
 #container {
     width: 1356px;
@@ -23,6 +24,7 @@ body {
     font-size: 70px;
     width: 50%;
     text-align: center;
+    letter-spacing: 3px;
 }
 #motto {
     float: left;
@@ -35,7 +37,7 @@ body {
     width: 329px;
     margin: 5px;
     height: 150px;
-    background-color: aqua;
+    background-color: dimgray;
     text-align: center;
 }
 .tile2 {
@@ -54,4 +56,43 @@ h3 {
 }
 .tile1:hover {
     background-color: black;
+}
+.ingredient-group {
+    text-align: center;
+}
+.grid {
+    width: 1356px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.submit {
+    text-align: center;
+}
+.unit {
+    text-align: justify-all;
+    font-size: 50px;
+}
+button {
+    font-size: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+input {
+    font-size: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+label {
+    font-size: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+.link {
+    color: white;
+}
+.link:hover {
+    cursor: pointer;
+}
+#another {
+    font-size: 35px;
 }

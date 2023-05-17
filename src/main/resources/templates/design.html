@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pizza from Heart</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+
+<body>
+<h1>Przygotuj własną PIZZE!</h1>
+<img th:src="@{/images/pizzaFromHeart.jpeg}"/>
+
+<form method="POST" th:object="${design}">
+
+    <div class="grid">
+
+        <div class="ingredient-group" id="dough">
+            <h3>Wybierz rodzaj ciasta:</h3>
+            <div class="unit" th:each="ingredient : ${dough}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+                <span th:text="${ingredient.name}">SKŁADNIK</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="proteins">
+            <h3>Wybierz dodatek:</h3>
+            <div class="unit" th:each="ingredient : ${protein}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">SKŁADNIK</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="cheeses">
+            <h3>Wybierz sery:</h3>
+            <div class="unit" th:each="ingredient : ${cheese}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+                <span th:text="${ingredient.name}">SKŁADNIK</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="veggies">
+            <h3>Wybierz warzywa:</h3>
+            <div class="unit" th:each="ingredient : ${veggies}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+                <span th:text="${ingredient.name}">SKŁADNIK</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="salad">
+            <h3>Wybierz sałate:</h3>
+            <div class="unit" th:each="ingredient : ${salad}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+                <span th:text="${ingredient.name}">SKŁADNIK</span>
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="sauces">
+            <h3>Wybierz sosy:</h3>
+            <div class="unit" th:each="ingredient : ${sauce}">
+                <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+                <span th:text="${ingredient.name}">SKŁADNIK</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="submit">
+        <h3>Nadaj nazwę Pizzy:</h3>
+
+        <input type="text" th:field="*{name}"/>
+        <button>Wyślij swoje zamówienie</button>
+
+    </div>
+</form>
+</body>
+</html>
