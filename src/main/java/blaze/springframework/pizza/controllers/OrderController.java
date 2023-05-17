@@ -7,8 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-@Slf4j
+
 @Controller
+@Slf4j
 @RequestMapping("/orders")
 public class OrderController {
     @GetMapping("/current")
@@ -18,7 +19,7 @@ public class OrderController {
     }
     @PostMapping
     public String processOrder(Order order) {
-        log.info("Zamówienie zostało złożone " + order);
+        log.info("Zamówienie zostało złożone: " + order);
         return "redirect:/";
     }
 }

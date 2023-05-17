@@ -5,12 +5,12 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Data
-public class Ingredients {
+public class Ingredient {
     private final  String id;
     private final String name;
     private final Type type;
 
     public enum Type {
-        DOUGH, PROTEIN, CHEESE, VEGGIES, SALAD, SAUCE
+        DOUGH, PROTEIN, VEGGIES, CHEESE, SALAD, SAUCE
     }
 }
