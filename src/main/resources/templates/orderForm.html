@@ -15,30 +15,56 @@
   <br/>
   <a th:href="@{/design}" class="link" id="another">Przygotuj kolejną PIZZE</a><br/>
 
+  <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+        Usuń wymienione problemy i spróbuj ponownie.
+        </span>
+  </div>
+
   <h3>Adres dostawy...</h3>
 
   <label for="name">Imię i nazwisko: </label>
   <input type="text" th:field="*{name}"/>
+
+  <span class="validationError"
+        th:if="${#fields.hasErrors('name')}"
+        th:errors="*{name}">Błąd imienia i nazwiska</span>
 
   <br/>
 
   <label for="street">Ulica: </label>
   <input type="text" th:field="*{street}"/>
 
+  <span class="validationError"
+        th:if="${#fields.hasErrors('street')}"
+        th:errors="*{street}">Błąd nazwy ulicy</span>
+
   <br/>
 
   <label for="city">Miejscowość: </label>
   <input type="text" th:field="*{city}"/>
+
+  <span class="validationError"
+        th:if="${#fields.hasErrors('city')}"
+        th:errors="*{city}">Błąd nazwy miejscowości</span>
 
   <br/>
 
   <label for="state">Województwo: </label>
   <input type="text" th:field="*{state}"/>
 
+  <span class="validationError"
+        th:if="${#fields.hasErrors('state')}"
+        th:errors="*{state}">Błąd nazwy województwa</span>
+
   <br/>
 
   <label for="zip">Kod pocztowy: </label>
   <input type="text" th:field="*{zip}"/>
+
+  <span class="validationError"
+        th:if="${#fields.hasErrors('zip')}"
+        th:errors="*{zip}">Błąd kodu pocztowego</span>
 
   <br/>
 
@@ -47,15 +73,27 @@
   <label for="ccNumber">Numer karty kredytowej: </label>
   <input type="text" th:field="*{ccNumber}"/>
 
+  <span class="validationError"
+        th:if="${#fields.hasErrors('ccNumber')}"
+        th:errors="*{ccNumber}">Numer karty kredytowej</span>
+
   <br/>
 
   <label for="ccExpiration">Data ważności: </label>
   <input type="text" th:field="*{ccExpiration}"/>
 
+  <span class="validationError"
+        th:if="${#fields.hasErrors('ccExpiration')}"
+        th:errors="*{ccExpiration}">Numer karty kredytowej</span>
+
   <br/>
 
   <label for="ccCVV">Kod CVV: </label>
   <input type="text" th:field="*{ccCVV}"/>
+
+  <span class="validationError"
+        th:if="${#fields.hasErrors('ccCVV')}"
+        th:errors="*{ccCVV}">Numer karty kredytowej</span>
 
   <br/>
 

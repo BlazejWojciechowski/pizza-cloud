@@ -96,3 +96,7 @@ label {
 #another {
     font-size: 35px;
 }
+.validationError {
+    font-family: "JetBrains Mono ExtraBold";
+    color: red;
+}

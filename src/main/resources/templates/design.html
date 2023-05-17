@@ -12,6 +12,10 @@
 
 <form method="POST" th:object="${design}">
 
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}"
+          th:errors="*{ingredients}">Błąd składnika</span>
+
     <div class="grid">
 
         <div class="ingredient-group" id="dough">
@@ -19,6 +23,7 @@
             <div class="unit" th:each="ingredient : ${dough}">
                 <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
                 <span th:text="${ingredient.name}">SKŁADNIK</span>
+
             </div>
         </div>
 
@@ -67,7 +72,14 @@
         <h3>Nadaj nazwę Pizzy:</h3>
 
         <input type="text" th:field="*{name}"/>
+
         <button>Wyślij swoje zamówienie</button>
+        <br/>
+
+        <span th:text="${#fields.hasErrors('name')}">XXX</span>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Błąd nazwy...</span>
 
     </div>
 </form>

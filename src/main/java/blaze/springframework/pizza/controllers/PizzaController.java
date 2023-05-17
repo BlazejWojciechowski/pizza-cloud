@@ -3,9 +3,11 @@ package blaze.springframework.pizza.controllers;
 import blaze.springframework.pizza.domain.Ingredient;
 import blaze.springframework.pizza.domain.Ingredient.Type;
 import blaze.springframework.pizza.domain.Pizza;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +53,10 @@ public class PizzaController {
     }
 
     @PostMapping
-    public String processDesign(Pizza design) {
+    public String processDesign(@Valid @ModelAttribute("design") Pizza design, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            return "design";
+        }
 
         log.info("Przetwarzanie zamówienia: " + design);
 
