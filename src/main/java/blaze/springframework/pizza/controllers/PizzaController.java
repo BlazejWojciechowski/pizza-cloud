@@ -2,63 +2,68 @@ package blaze.springframework.pizza.controllers;
 
 import blaze.springframework.pizza.domain.Ingredient;
 import blaze.springframework.pizza.domain.Ingredient.Type;
+import blaze.springframework.pizza.domain.Order;
 import blaze.springframework.pizza.domain.Pizza;
+import blaze.springframework.pizza.repositories.IngredientRepository;
+import blaze.springframework.pizza.repositories.PizzaRepository;
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Controller
 @RequestMapping("/design")
+@SessionAttributes("order")
 public class PizzaController {
-    @ModelAttribute
-    public void addIngredientsToModel(Model model) {
-        List<Ingredient> ingredients = Arrays.asList(
-                new Ingredient("THIN", "na cienkim", Type.DOUGH),
-                new Ingredient("FATT", "na grubym", Type.DOUGH),
-                new Ingredient("SALA", "salami", Type.PROTEIN),
-                new Ingredient("PROS", "prosciutto", Type.PROTEIN),
-                new Ingredient("TMTO", "pomidory", Type.VEGGIES),
-                new Ingredient("OLIV", "oliwki", Type.VEGGIES),
-                new Ingredient("PICK", "ogórek kiszony", Type.VEGGIES),
-                new Ingredient("CHED", "cheddar", Type.CHEESE),
-                new Ingredient("MOZZ", "mozzarella", Type.CHEESE),
-                new Ingredient("ARUG", "rukola", Type.SALAD),
-                new Ingredient("BASI", "bazylia", Type.SALAD),
-                new Ingredient("SLSA", "pikantny", Type.SAUCE),
-                new Ingredient("STMT", "pomidorowy", Type.SAUCE)
-        );
+    private final IngredientRepository ingredientRepo;
+    private PizzaRepository pizzaRepository;
+
+    @Autowired
+    public PizzaController(IngredientRepository ingredientRepo, PizzaRepository pizzaRepository) {
+        this.ingredientRepo = ingredientRepo;
+        this.pizzaRepository = pizzaRepository;
+    }
+
+    @ModelAttribute(name = "order")
+    public Order order() {
+        return new Order();
+    }
+
+    @ModelAttribute(name = "taco")
+    public Pizza taco() {
+        return new Pizza();
+    }
+
+    @GetMapping
+    public String showDesignForm(Model model) {
+        List<Ingredient> ingredients = new ArrayList<>();
+        ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(ingredients, type));
         }
-    }
-
-    @GetMapping
-    public String showDesignForm(Model model) {
-        model.addAttribute("design", new Pizza());
         return "design";
     }
 
     @PostMapping
-    public String processDesign(@Valid @ModelAttribute("design") Pizza design, Errors errors, Model model) {
+    public String processDesign(
+            @Valid Pizza design, Errors errors,
+            @ModelAttribute Order order) {
+
         if (errors.hasErrors()) {
             return "design";
         }
 
-        log.info("Przetwarzanie zamówienia: " + design);
+        Pizza saved = pizzaRepository.save(design);
+        order.addDesign(saved);
 
         return "redirect:/orders/current";
     }

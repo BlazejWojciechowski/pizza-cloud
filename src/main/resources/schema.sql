@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 create table if not exists Ingredient (
   id varchar(4) not null,
   name varchar(25) not null,
@@ -43,23 +42,20 @@ alter table Taco_Order_Tacos
     add foreign key (tacoOrder) references Taco_Order(id);
 alter table Taco_Order_Tacos
     add foreign key (taco) references Taco(id);
-=======
-create table if not exists Ingredient
-(
+
+create table if not exists Ingredient (
     id   varchar(4)  not null,
     name varchar(25) not null,
     type varchar(10) not null
 );
 
-create table if not exists Pizza
-(
+create table if not exists Pizza (
     id        varchar(4)  not null,
     name      varchar(50) not null,
     createdAt timestamp   not null
 );
 
-create table if not exists Pizza_Ingredients
-(
+create table if not exists Pizza_Ingredients (
     pizza      bigint     not null,
     ingredient varchar(4) not null
 );
@@ -69,10 +65,7 @@ alter table Pizza_Ingredients
 alter table Pizza_Ingredients
     add foreign key (ingredient) references Ingredient (id);
 
-
-
-create table if not exists Pizza_Order
-(
+create table if not exists Pizza_Order (
     id             varchar(4)  not null,
     deliveryName   varchar(50) not null,
     deliveryStreet varchar(50) not null,
@@ -85,8 +78,7 @@ create table if not exists Pizza_Order
     placedAt       timestamp   not null
 );
 
-create table if not exists Pizza_Order_Pizzas
-(
+create table if not exists Pizza_Order_Pizzas (
     pizzaOrder bigint not null,
     pizza      bigint not null
 );
@@ -95,4 +87,3 @@ alter table Pizza_Order_Pizzas
     add foreign key (pizzaOrder) references Pizza_Order (id);
 alter table Pizza_Order_Pizzas
     add foreign key (pizza) references Pizza (id);
->>>>>>> origin/jdbc

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 delete from Taco_Order_Tacos;
 delete from Taco_Ingredients;
 delete from Taco;
@@ -25,7 +24,6 @@ insert into Ingredient (id, name, type)
                 values ('SLSA', 'Salsa', 'SAUCE');
 insert into Ingredient (id, name, type) 
                 values ('SRCR', 'Sour Cream', 'SAUCE');
-=======
 delete
 from Pizza_Order_Pizzas;
 delete
@@ -34,7 +32,6 @@ delete
 from Pizza;
 delete
 from Pizza_Order;
-
 delete
 from Ingredient;
 
@@ -64,4 +61,3 @@ insert into Ingredient (id, name, type)
 values ('SLSA', 'Salsa Sauce', 'SAUCE');
 insert into Ingredient (id, name, type)
 values ('STMT', 'Tomato Sauce', 'SAUCE');
->>>>>>> origin/jdbc
