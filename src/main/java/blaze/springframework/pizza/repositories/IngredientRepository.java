@@ -3,7 +3,6 @@ package blaze.springframework.pizza.repositories;
 import blaze.springframework.pizza.domain.Ingredient;
 import org.springframework.data.repository.CrudRepository;
 
-public interface IngredientRepository
-        extends CrudRepository<Ingredient, String> {
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 
 }
